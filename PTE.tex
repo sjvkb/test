@@ -1,0 +1,351 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{circuitikz} % for electrical circuits
+\usepackage{wrapfig} % for wrap text to figures
+
+\title{Physics Through Experiment}
+\author{B. Saraf\\S. Lokanathan\\K. B. Garg\\D. T. Chandwani\\Y. S. Shishodia\\R. C. Tailor}
+\date{Department of Physics\\University of Rajasthan, Jaipur\thanks{I don't have copyright of the text and not using the above thing for commercial purpose.}}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{}
+\section{Foreword}
+\section{Preface}
+\section{Acknowledgment}
+\section{A note to the student}
+
+\tableofcontents
+
+\chapter{STUDY OF A POWER SOURCE}
+\section{Introduction}
+A car battery can supply 12 volts. So can 8 dry cells in series. But no one would consider using the dry cells to start a car. Why not? Obviously, the dry cells cannot supply the large current required to start the car. The point is that the resistance of the source for the car battery ($\approx$ 0.1 $\Omega$) is considerably smaller than that for the 8 dry cells ($\approx$ 5 to 70 $\Omega$) in series.\footnote{There are, of course, many other factors that dictate practical use of a power source. Consideration of cost, convenience of use, recharge-ability, available power and energy etc. are some of these. For example, a dry cell may give only a few watt-hours of energy and cannot be recharged whereas a car battery can give 500 watt-hours and, with care, can be recharged any number of times. A power-supply, on the other hand, derives its power continuously from the a-c mains and hence needs no charging and can deliver any amount of energy. We shall however, not discuss these factors here, important as they are.} A power-supply which happens to be another commonly used source in the laboratory has a widely varying resistance; for a regulated power supply it may be as small as 0.01 $\Omega$.
+\section{Output Resistance}
+A source of emf [Fig \ref{fig:emfsource}], therefore, must be represented not just by its voltage $V_S$ but by its source resistance $R_S$ as well [Fig \ref{fig:emfsource2}].
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+%    \begin{center}
+%    \centering
+    \begin{circuitikz} \draw
+    (3,3) to[ short, *-] (0,3)
+    to[battery, l_=$V_S$] (0, 0)
+    to[ short, -* ] (3, 0)
+    (3,3) node[right] {A}
+    (3,0) node[right] {B}; 
+    \end{circuitikz}
+%    \end{center}
+    \caption{Source of emf}
+    \label{fig:emfsource}
+%\end{wrapfigure}
+%\begin{wrapfigure}{r}{0.5\textwidth}
+%    \centering
+%\flushright
+    \begin{circuitikz} \draw
+    (3,3) %to[ short, *- ] (2,3)
+    to[R, l=$R_S$, *-] (0,3)
+    to[battery, l_=$V_S$] (0, 0)
+    to[ short, -* ] (3, 0)
+    (3,3) node[right] {A}
+    (3,0) node[right] {B};  
+    \end{circuitikz}
+    \caption{Source of emf with internal resistance}
+    \label{fig:emfsource2}
+\end{wrapfigure}
+
+It is convenient to think of the source $V_S$ and its resistance $R_S$ as enclosed in an imaginary box (indicated by the dotted line in Fig \ref{fig:emfsource2} wih terminals $A$ and $B$, which we can put to any use we like. Electrical networks may be complicated but it is often very useful to think of parts of it as a ``box'' with certain parameters associated with it-- in the above case the parameters begin $V_S$ and $R_S$.
+
+Suppose we are given such a box with terminals $A$ and $B$ and we have to determine $R_S$ and $V_S$/ First let us see how to do this in principle. We connect a voltmeter of very high resistance (ideally infinite) so that it draws no current. It will measure $V_S$ directly. We can now connect an ammter (ideally zero resistance) and measure the current which will be $i = \frac{V_S}{R_S}$.
+
+This, we may define the source resistance as the open circuit voltage between $A$ and $B$ divided by the current when $A$ and $B$ are short circuited. In practice, we may have to exercise caution since the short circuit current may be very large and damage the instrument or the source itself.
+
+We may now adopt the following attitude. The terminals $A$ and $B$ provide a certain source of voltage $V_S$ with a source resistance $R_S$. Actually, $R_S$ may include other circuit elements as well. For example, think of the arrangements in Fig \ref{fig:emfsource3} and \ref{fig:emfsource4}. For these too we can represent the `source' by a certain output voltage $V_S$ and source resistance $R_S$ as shown in Fig \ref{fig:emfsource2}. For the case of Fig \ref{fig:emfsource3}, Ohm's law gives us
+
+\begin{wrapfigure}{l}{0.6\textwidth}
+%    \centering
+    \begin{circuitikz} \draw
+    (4,2) to[ short, *- ] (2,2) 
+    to[R, l_=$R_1$] (2,4)
+    to[ short ] (0,4)
+    to[battery, l_=$V_0$] (0, 0)
+    to[ short, -* ] (4, 0)
+    (2,2) to[R, l_=$R_2$] (2, 0)
+    (4,2) node[right] {A}
+    (4,0) node[right] {B};
+    \end{circuitikz}
+    \caption{Internal status of source}
+    \label{fig:emfsource3}
+\end{wrapfigure}
+
+$$V_S = V_0 \frac{R_2}{R_1+R_2}$$
+$$R_S = \frac{R_1R_2}{R_1+R_2}$$
+
+\begin{figure}%{r}{0.5\textwidth}
+%    \centering
+%\flushright
+    \begin{circuitikz} \draw
+    (6,3) to[ short, *- ] (4,3)
+    to[R, l_=$R_1$] (2,3)
+    to[ short ] (0,3)
+    to[battery, l_=$V_0$] (0, 0)
+    to[ short, -* ] (6, 0)
+    (2,3) to[R, l_=$R_2$] (2, 0)
+    (4,3) to[R, l_=$R_3$] (4, 0)
+    (6,3) node[right] {A}
+    (6,0) node[right] {B}; 
+    \end{circuitikz}
+    \caption{Another possible emf source}
+    \label{fig:emfsource4}
+\end{figure}
+\vfill
+
+\paragraph{}
+We can now say that we have a source of output voltage $V_S$, across the terminals $AB$, with an effective resistance $R_S$. This effective source resistance $R_S$ is often called the output resistance of the device as seen from $AB$. We shall develop the above ideas with a few simple experiments.%
+
+\section{Network Board}
+The network board for our experiment is shown in Plate I. It contains three groups of resistors $R_1$, $R_2$, $R_3$, each group having several different resistors to choose from. It has a d-c milliammter and a d-c voltmeter. Fig \ref{fig:netboard} shows the details of connections provided underneath the board. It will be seen that one could choose any one resistor from group $R_1$ and any one from group $R_2$ to make up a `source' like that in Fig \ref{fig:emfsource3}. The third set of resistors $R_3$ are all connected in series and can be used as load. One could plug-in at any pair of points and get the desired value of the load.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.23]{r-board.pdf}
+    \caption{Provided connections on the board.}
+    \label{fig:netboard}
+\end{figure}
+
+The meters can be used in multiple ranges. See section \ref{section:the_meters} for the shunt arrangements in case of the milliameter and series resistor arrangements for the voltmeter. It is worth mentioning that the voltmeter has been made out of a microammeter with its microamperes scale left uncovered and the voltage reading scales marked separately below the meter. The advantage is that one can also read the current drawn by the voltmeter. In principle, for an ideal voltmeter, this should be zero; in practice it is not. For about 10 mA current in the circuit, the voltmeter provided on the board draws 50$\mu$A for a full scale deflection, which is about 0.5\%.
+
+\section{Experiments}
+\subsection{Output voltage and resistance of a source}
+\label{section:vo-vs-r}
+\paragraph{To obtain the output voltage and output resistance of a given source.}
+Let the dotted `box' in Fig \ref{fig:ex1} with $AB$ for its output terminals be our `source'. As can be seen from the figure, in fact it consists of a power-supply of voltage $V_0$ and a potential divider arrangement made of resistors $R_1$ and $R_2$. We have to measure its output voltage across $AB$ and then calculate its output resistance $R_S$.
+\begin{figure}[!h]
+%    \centering
+    \begin{circuitikz} \draw
+    (4,2) to[ ammeter, l_=mA ] (6,2)
+    to [short ] (10,2)
+    to [R, l_=$R_L$] (10,0)
+    to [short ] (4,0)
+    (8,2) to[voltmeter, l_=$V_L$] (8,0)
+    (4,2) to[ short, *- ] (2,2) 
+    to[R, l_=$R_1$] (2,4)
+    to[ short ] (0,4)
+    to[battery, l_=$V_0$] (0, 0)
+    to[ short, -* ] (4, 0)
+    (2,2) to[R, l_=$R_2$] (2, 0)
+    (4,2) node[above] {A}
+    (4,0) node[below] {B};
+    \draw (8,1)[black,fill=white]circle [radius=12pt];
+    \node at (8,1) {V}; % Some changes made to voltmeter.
+    \end{circuitikz}
+    \caption{Internal status of source}
+    \label{fig:ex1}
+\end{figure}
+
+$V_S$ is measured by connnecting the voltmeter directly across $AB$. Of course, it is implied here that the resistance of the voltmeter is so large that the current flowing through it can be neglected.
+
+Now connect a resistor $R_L$ called load resistor along with a milliammter. The current $i$ drawn from the source is measured by the milliammter and the new voltmeter reading $V_L$ would be lower than $V_S$, If $R_S$ be the output resistance of the source then
+$$V_S - iR_S = V_L$$
+
+Thus the output resistance $R_S$ is given by
+\begin{equation}
+    R_S = \frac{\rm Drop~in~output~voltage}{\rm Load~current} = \frac{V_S - V_L}{i}
+    \label{eq:out1}
+\end{equation}
+
+If we take several different values of $R_L$, we shall be drawing different currents $i$. The voltage drop $V_S-V_L$ will also corresponding change. You may tabulate these values, compute $R_S$ each time from Eq (\ref{eq:out1}), and obtain the mean $R_S$. Alternatively, you may draw a graph between $V_L$ and $i$ as shown in Fig \ref{fig:vl-vs-i}, see if it is a straight line, and obtain $R_S$ from its slope and $V_S$ from its intercept on the $V_L$ axis (since $i=0$ for this intercept $V_S$ would be the same as $V_L$). Can you appreciate why it is much better to calculate $R_S$ from the graph rather than directly from your observations?
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.25]{vl_vs_i.pdf}
+    \caption{$V_L$ vs current}
+    \label{fig:vl-vs-i}
+\end{figure}
+
+Represent your results $V_S$, $R_S$ with a diagram like that in \ref{fig:emfsource2}. This would be the `equivalent circuit' for the actual source in Fig \ref{fig:emfsource4}.
+\subsection{Variation of output resistance}
+\paragraph{To study the variation of the output resistance $R_S$ with changes in values of $R_1$ and $R_2$, the ratio $R_1/R_2$ remaining constant.}
+\subsection{Power delivered at different loads}
+\paragraph{To study the power delivered by a source at different loads.}
+\subsection{Load matching and power dissipation}
+\paragraph{To learn more about `load matching' and power dissipation in a circuit.}
+\subsection{Reflected load resistance}%\footnote{For doing this experiment you will need a resistance box in addition to the Network-Board shown in Fig \ref{fig:netboard}. Also note that in this and the following experiment on reflected load resistance measurement a power-supply with an output voltage $V_0$ and negligible output resistance is used as the source.}
+\paragraph{To study the reflected load resistance in a network.}
+\subsection{Equivalent circuit for a source}%\footnote{This could be done immediately after \ref{section:vo-vs-r} as an exercise to see how any `source' (with whatever complicated details can be replaced by an equivalent circuit of an emf $V_S$ and a series resistance $R_S$. You would need some extra resistors in addition to your Network-Board for doing this experiment.}
+\paragraph{To make a simple equivalent circuit for a power `source'. In Experiment. In \ref{section:vo-vs-r} you took a simple source (Fig \ref{fig:emfsource4} of output voltage $V_S$.}
+\section{REGULATED d-c POWER-SUPPLY}
+\subsection{Principle}
+An ideal regulated supply is an electronic circuit designed to provide a predetermined d-c voltage $V_0$, which is independent of the load current $I_L$ drawn from it, the temperature and variations in the a-c line-voltage.
+
+An unregulated power-supply consists essentially of a transformer, a rectifier and a filter. There are several reasons why such a power-supply is not good enough for many applications. The first is its poor regulation; the output voltage is not constant as the load varies. The second is that the d-c output voltage varies with the a-c input. In some locations the line-voltage (of nominal value 230 volts) may vary from 180 V to 250 V and yet it is necessary that the d-c voltage remain constant. The third reason is that the d-c output voltage may vary with temperature. A feedback circuit is used to overcome these shortcomings. Such a system is called a regulated power-supply [shown in Fig. \ref{fig:regPow}]
+
+\begin{figure}
+    \centering
+    \begin{circuitikz} \draw
+    % http://texdoc.net/texmf-dist/doc/latex/circuitikz/circuitikzmanual.pdf
+    (10,0) to[ short, *- ] (0,0)
+    to[ voltmeter, l_=$V_i$] (0,3)
+    to[ R, l_=$r_0$] (0,6)
+    to[short ] (5.5,6)
+    (6,6.8) to[short, -*] (10,6.8)
+    to [ short ] (12,6.8)
+    to [short, i=$I_L$] (12, 5)
+    to [R, l_=$R_L$] (12,0)
+    to [short ] (10,0)
+    (9,6.8) to [R, -*, l_=$R_1$] (9,3.4)
+    to [R, -*, l_=$R_2$] (9,0)
+    (6,4.5) to[short] (6,5.2)
+    (9,3.4) to[short] (8,3.4)
+    to [short] (8,2.5)
+    to [short] (3.6,2.5)
+    to [short] (3.6,4)
+    (3.6,5) to[short](2,5)
+    to [battery] (2,0);
+    \draw (6,6) node[npn] (npn){};
+    \draw (4.8,4.5) node[plain amp]{};
+    %to node[npn] (npn) {};
+    \end{circuitikz}
+    \caption{Regulated power supply system}
+    \label{fig:regPow}
+\end{figure}
+\subsection{Monolithic Voltage Regulators}
+\section{THE METERS}
+\label{section:the_meters}
+\subsection{d-c and a-c Measurements}
+\subsection{Bridge Circuit}
+
+\chapter{CHARGING AND DISCHARGING OF A CAPACITOR}
+\section{Capacitors}
+\section{RC circuit}
+\section{Network Board}
+\section{Experiments}
+\subsection{Charging of a capacitor}
+\subsection{Discharging of a capacitor}
+\subsection{Current during charging and discharging}
+\subsection{Leakage resistance of a capacitor}
+\subsection{Energy dissipated during charge and discharge}
+\subsection{Dependence of dissipation on C and V}
+\subsection{Adiabatic charging of a capacitor}
+\section{Capacitors}
+\subsection{Paper}
+\subsection{Electrolytic and other type}
+\section{Analysis of an RC circuit with d-c source}
+\section{Carbon resistors}
+\section{Metronome}
+
+\chapter{STUDY OF RC CIRCUIT WITH VARYING EMF}
+\section{Introduction}
+\section{Diode}
+\section{Sources of Varying EMF}
+\section{Network Board}
+\section{Experiments}
+\subsection{RC circuit with pulses of large width}
+\subsection{RC circuit with pulses of small width}
+\subsection{RC circuit with pulses of unequal widths}
+\subsection{RC circuit with pulses of different shapes}
+\subsection{RC circuit with diode as an integrating system}
+\subsection{Integrating system with an alternating input}
+\subsection{Integrating system with sinusoidal input}
+\section{Diode}
+\section{Derivation of equation on voltage integration}
+
+\chapter{STUDY OF RC CIRCUIT WITH A LOW FREQUENCY a-c SOURCE}
+\section{Introduction}
+\section{Phase}
+\section{Vector Diagrams}
+\section{Analysis of an \textit{RC} circuit}
+\section{Network Board}
+\section{Measurement of Peak and Average a-c Voltages}
+\section{Experiments}
+\subsection{\textit{RC} circuit --- Voltages and phases}
+\subsection{A purely resistive, apurely capacitative and mixed circuits}
+\subsection{Phase difference between $V_C$ and $V_R$}
+\subsection{Phase difference between $V_C$ and $V_R$ measuring peak voltages}
+\subsection{Phase relationships of currents}
+\subsection{\textit{RC} circuits at different frequencies}
+\section{Ultra-low frequency oscillator}
+\subsection{Principle}
+\subsection{\textit{RC} Feed Back Network}
+\subsection{Phase Shift Oscillator}
+\subsection{Wien Bridge Oscillator}
+\section{Alternating emf, \textit{RC} circuit and it's analysis}
+\section{Transients}
+
+\chapter{STUDY OF RC CIRCUIT WITH a-c MAINS}
+\section{Introduction}
+\section{Network Board}
+\section{Experiments}
+\subsection{Purely resistive circuit}
+\subsection{Simple \textit{RC} circuit}
+\subsection{\textit{RC} circuit with an \textit{AF} oscillator}
+\subsection{Vectorial addition of voltages}
+\subsection{Behaviour of an actual capacitor}
+\subsection{Leakage representation by series resistance}
+\subsection{Represent leakage by a shunt}
+\subsection{Quadrature of currents in \textit{R} and \textit{C} arms}
+\subsection{Equivalent series resistance for a shunt across \textit{C}}
+\subsection{Impedance in a series \textit{RC} circuit}
+\subsection{Impedance in a parallel \textit{RC} circuit}
+\subsection{Equivalent circuits for complex \textit{RC} networks}
+\section{Audio-frequency oscillator and power amplifier}
+
+\chapter{STUDY OF INDUCTIVE CIRCUITS}
+\section{Introduction}
+\section{\textit{LR} Circuit with d-c Source.}
+\section{\textit{LR} Circuit with a-c Source.}
+\section{\textit{LCR} Circuit with d-c Source.}
+\section{\textit{LCR} Circuit with a-c Source.}
+\section{Network Board}
+\section{Experiments}
+\subsection{Growth and decay of current in \textit{LR} circuit}
+\subsection{Energy stored in inductor in \textit{LR} circuit}
+\subsection{Charge-discharge of a capacitor in \textit{LCR} circuit}
+\subsection{Equivalent power loss resistance of inductor}
+\subsection{Vector diagrams for complex \textit{LR} circuit}
+\subsection{Vector diagrams for complex \textit{RC} circuit}
+\subsection{Inductors in series}
+\subsection{Capacitors in series}
+\subsection{Phase difference between $V_C$ and $V_L$}
+\subsection{Impedance in \textit{LCR} circuit}
+\subsection{Resonance in \textit{LCR} circuit}
+\subsection{\textit{Q} of series resonant \textit{LCR} circuit}
+\section{Inductance}
+\section{Analysis of \textit{LR} circuits}
+
+\chapter{PHASE MEASUREMENT BY SUPERPOSITION}
+\section{Introduction}
+\section{Principle of Measurement}
+\section{Network Board}
+\section{Experiments}
+\subsection{Phases of voltages across resistors and capacitors}
+\subsection{Phases of $V_R$ and $V_C$ in \textit{RC} circuit}
+\subsection{More about phase relationships in \textit{RC} circuit}
+\subsection{Phase relationships in \textit{LR} circuit}
+\subsection{Phase of $V_R$ in \textit{LCR} circuit}
+\subsection{Phases of various voltages in \textit{LCR} circuit}
+\subsection{Equivalent circuits for hybrid \textit{RC} networks}
+\subsection{Phase of any voltage in complex networks}
+\section{Need for coherent sources}
+
+\chapter{STUDY OF ELECTROMAGNETIC INDUCTION}
+\section{Introduction}
+\section{The apparatus}
+\section{Experiments}
+\subsection{Induced emf as a function of velocity of magnet}
+\subsection{Charge delivered due to induction}
+\subsection{Electromagnetic damping}
+\section{Flux of the field and Faraday's Law}
+\section{Lenz's Law}
+
+%\begin{appendices}
+%\appendixpage
+%\noappendicestocpagenum
+%\addappheadtotoc
+%\chapter{REGULATED d-c POWER-SUPPLY}
+%\section{Principle}
+%\section{Monolithic Voltage Regulators}
+%\end{appendices}
+\end{document}
